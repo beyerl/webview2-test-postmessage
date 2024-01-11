@@ -8,9 +8,14 @@
 <body>
 Webview2 postmessage Test page https://beyerl.github.io/webview2-test-postmessage/
 <input id="urlBox"></input>
+<button id="btn">send</button>
 </body>
 <script>
-    var url = document.getElementById(urlBox).value
-    window.chrome.webview.postMessage(url)
+    function sendMessage(){
+        var url = document.getElementById("urlBox").value
+        window.chrome.webview.postMessage(url)
+    }
+
+    document.getElementById("btn").addEventListener("click", sendMessage);
 </script>
 </html>
