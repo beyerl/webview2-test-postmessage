@@ -18,7 +18,7 @@ Webview2 postmessage Test page https://beyerl.github.io/webview2-test-postmessag
 
     document.getElementById("btn").addEventListener("click", sendMessage);
     window.chrome.webview.addEventListener('message', event => {
-        var postMessage = JSON.parse(event.data)
+        var postMessage = event.data
         if(postMessage.messageType === "getPosition"){
             sendMessage()
         }
