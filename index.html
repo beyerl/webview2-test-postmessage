@@ -6,9 +6,11 @@
 <meta name="keywords" content="html tutorial template">
 </head>
 <body>
-Webview2 postmessage Test page
+Webview2 postmessage Test page https://beyerl.github.io/webview2-test-postmessage/
+<input id="urlBox"></input>
 </body>
 <script>
-  
+    var url = document.getElementById(urlBox).value
+    window.chrome.webview.postMessage(url)
 </script>
 </html>
