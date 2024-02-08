@@ -20,6 +20,13 @@ Webview2 postmessage Test page https://beyerl.github.io/webview2-test-postmessag
     }
 
     document.getElementById("btn").addEventListener("click", sendMessage);
+    window.addEventListener('message', function(event) {
+        // Check if the message is from the expected origin
+        if (event.origin === 'https://beyerl.github.io') {
+            // Display the received message
+            alert('Child Received Message: ' + event.data);
+        }
+    }, false);
     if(window.chrome){
         window.chrome.webview.addEventListener('message', event => {
             var postMessage = event.data
