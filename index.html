@@ -14,6 +14,7 @@ Webview2 postmessage Test page https://beyerl.github.io/webview2-test-postmessag
     function sendMessage(){
         var url = document.getElementById("urlBox").value
         window.chrome.webview.postMessage(url)
+        window.postMessage(url)
     }
 
     document.getElementById("btn").addEventListener("click", sendMessage);
