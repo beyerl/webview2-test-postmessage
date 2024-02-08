@@ -13,20 +13,13 @@ Webview2 postmessage Test page https://beyerl.github.io/webview2-test-postmessag
 <script>
     function sendMessage(){
         var url = document.getElementById("urlBox").value
-        window.postMessage(url)
+        window.top.postMessage(url)
         if(window.chrome){
             window.chrome.webview.postMessage(url)
         }      
     }
 
     document.getElementById("btn").addEventListener("click", sendMessage);
-    window.addEventListener('message', function(event) {
-        // Check if the message is from the expected origin
-        if (event.origin === 'https://beyerl.github.io') {
-            // Display the received message
-            alert('Child Received Message: ' + event.data);
-        }
-    }, false);
     if(window.chrome){
         window.chrome.webview.addEventListener('message', event => {
             var postMessage = event.data
